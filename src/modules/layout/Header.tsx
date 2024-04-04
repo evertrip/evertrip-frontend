@@ -26,7 +26,7 @@ function Header() {
   return (
     <Box sx={{ ...styles.box }} height={90}>
       <AppBar position="static" sx={{ ...styles.headerStyle }}>
-        <Toolbar sx={{ ...styles.toolbar }}>EverTrip</Toolbar>
+        <Toolbar sx={{ ...styles.toolbar }}>everTrip</Toolbar>
       </AppBar>
     </Box>
   );
