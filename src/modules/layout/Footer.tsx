@@ -15,9 +15,11 @@ function Footer() {
           justifyContent: "center",
           zIndex: 1000,
           alignItems: "center",
+          backgroundColor: "#1976d2",
         }}
-        color="ebebeb"
-      ></Box>
+      >
+        푸터 입니다
+      </Box>
     </div>
   );
 }
