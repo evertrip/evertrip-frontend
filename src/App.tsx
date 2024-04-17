@@ -6,6 +6,8 @@ import { createGlobalStyle } from "styled-components";
 import { createTheme, ThemeProvider } from "@mui/material";
 import Layout from "./modules/layout/Layout";
 import Main from "./modules/main/routers/Main";
+import SignUpDisplay from "./modules/login/SignUpDisplay";
+import MyPageDisplay from "./modules/mypage/MyPageDisplay";
 
 const GlobalStyle = createGlobalStyle`
 @font-face{
@@ -53,8 +55,10 @@ function App() {
       <GlobalStyle />
       <ThemeProvider theme={Theme}>
         <Routes>
-          <Route path="/login" element={<LoginDisplay />} />
           <Route element={<Layout />}>
+            <Route path="/login" element={<LoginDisplay />} />
+            <Route path="/signup" element={<SignUpDisplay/>} />
+            <Route path="/mypage" element={<MyPageDisplay/>} />
             <Route path="/" element={<Main />} />
             {/* <Route path="/post/create" element={<CreationPost />} /> => 예시입니다!!! */}
           </Route>
