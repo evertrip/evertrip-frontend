@@ -27,7 +27,7 @@ const styles = {
   headerStyle: {
     // backgroundColor: "#??????", >> 추후에 Header 색상 논의 필요
     boxShadow: "none",
-    height: "65px",
+    height: "90px",
     marginBottom: "0",
   },
   toolbar: {
@@ -35,7 +35,7 @@ const styles = {
     justifyContent: "space-between",
     alignContent: "center",
     width: "100%",
-    height: "75px",
+    height: "100px",
     marginTop: "15px",
   },
   menu: {
@@ -93,9 +93,11 @@ function Header() {
               <Menu toggleDrawer={toggleDrawer} />
             </Drawer>
           </React.Fragment>
-          <Typography variant="h6" component="div" sx={{ textAlign: "center" }}>
-            EverTrip
-          </Typography>
+          <img
+            src="/images/loginImages/16.png"
+            alt="everTrip"
+            style={{ width: "200px", height: "200px", marginTop: "15px" }}
+          />{" "}
           <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
