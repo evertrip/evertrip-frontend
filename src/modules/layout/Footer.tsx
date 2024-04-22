@@ -61,6 +61,7 @@ function Footer() {
                 "&:hover": {
                   cursor: "pointer",
                 },
+                color: "white",
               }}
             >
               GitHub
@@ -92,6 +93,7 @@ function Footer() {
                 "&:hover": {
                   cursor: "pointer",
                 },
+                color: "white",
               }}
             >
               Notion
@@ -161,6 +163,7 @@ function Footer() {
                   cursor: "pointer",
                 },
                 justifyContent: "flex-end",
+                color: "white",
               }}
             >
               ERD Cloud
@@ -192,6 +195,7 @@ function Footer() {
                   cursor: "pointer",
                 },
                 justifyContent: "flex-end",
+                color: "white",
               }}
             >
               API Docs
