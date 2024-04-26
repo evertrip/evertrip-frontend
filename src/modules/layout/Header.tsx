@@ -3,7 +3,8 @@ import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import "../../global.css";
-import { Button, Drawer, IconButton, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import { Button, Drawer, IconButton } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import Menu from "./menu";
 
@@ -51,7 +52,17 @@ const styles = {
  * @author 박창우
  */
 function Header() {
+  const navigate = useNavigate();
+
   const [isOpenDrawer, setIsOpenDrawer] = useState<boolean>(false);
+
+  /**
+   * 로고 이미지를 클릭 시 메인 페이지로 이동하는 함수입니다.
+   * @author 박창우
+   */
+  const goMain = () => {
+    navigate("/");
+  };
 
   /**
    * Drawer를 열거나 닫는 함수입니다.
@@ -96,7 +107,13 @@ function Header() {
           <img
             src="/images/loginImages/16.png"
             alt="everTrip"
-            style={{ width: "200px", height: "200px", marginTop: "15px" }}
+            onClick={goMain}
+            style={{
+              width: "200px",
+              height: "200px",
+              marginTop: "15px",
+              cursor: "pointer",
+            }}
           />{" "}
           <Button color="inherit">Login</Button>
         </Toolbar>
