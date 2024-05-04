@@ -25,7 +25,7 @@ export interface CardContent {
 }
 
 const OneCard: React.FC<CardProps> = ({ content, onCardClick }) => {
-  return(
+   return(
     <Container sx={{
       padding: 0,
       margin: 2,
@@ -33,7 +33,7 @@ const OneCard: React.FC<CardProps> = ({ content, onCardClick }) => {
       maxWidth: "200px",
       position: 'relative'
     }}>
-      <Card>
+      <Card onClick={onCardClick} sx={{ cursor: 'pointer' }}>
         <CardHeader
           action={
             <IconButton aria-label="settings" size="small" sx={{ color: 'white' }}>
@@ -55,11 +55,16 @@ const OneCard: React.FC<CardProps> = ({ content, onCardClick }) => {
               backgroundColor: 'rgba(0, 0, 0, 0.7)', color: 'white',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
               opacity: 0, transition: 'opacity 0.3s',
+              padding: '8px',
               '&:hover': {
                 opacity: 1
               }
             }}>
-            <Typography variant="body2" noWrap>
+            <Typography variant="body2" sx={{
+              overflow: 'auto',    // 자동 스크롤바
+              textOverflow: 'ellipsis',  // 글자 생략 표시
+              whiteSpace: 'normal'  // 여러 줄 표시
+            }}>
               {content.description}
             </Typography>
           </CardContent>

@@ -1,6 +1,7 @@
 import { Container } from "@mui/material";
 import React from "react";
 import SlideCards from "../components/SlideCards";
+import GridCards from "../components/GridCards";
 
 const mainPageContents = {
   hotCards : [],    
@@ -23,7 +24,7 @@ function Main() {
     >
 
       <SlideCards></SlideCards>
-
+      <GridCards></GridCards>
 
     </Container>
   );
