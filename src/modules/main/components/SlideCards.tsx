@@ -1,86 +1,70 @@
 import React from 'react';
-import { Swiper, SwiperSlide} from 'swiper/react';
-import { Navigation, Pagination} from "swiper/modules";
-
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination } from "swiper/modules";
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import OneCard, { CardContent } from './OneCard';
+import OneCard from './OneSlideCard';
 import { Container } from '@mui/material';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+
+import CardContents from './CardContent'
 
 
+interface SlideCardProps {
+  contents: CardContents[];
+}
 
-// 슬라이드 카드 컴포넌트의 프로퍼티는 없지만, 필요한 경우 추가 가능
-interface SlideCardsProps {}
-
-const cardsContents: CardContent[] = [
-  {
-    title: "Mountain Adventure",
-    date: "2024-04-18",
-    description: "Explore the heights with this thrilling mountain adventure.",
-    imageUrl: "/images/snowMountain.jpg",
-    clickUrl: "/"
-  },
-  {
-    title: "Desert Expedition",
-    date: "2024-04-19",
-    description: "Feel the sun and sand in an exciting desert rally.",
-    imageUrl: "/images/desert.jpg",
-    clickUrl: "/"
-  },
-  {
-    title: "Swimming Competition",
-    date: "2024-04-20",
-    description: "Dive into the action in this thrilling swimming event.",
-    imageUrl: "/images/swimmingGirl.jpg",
-    clickUrl: "/"
-  },  {
-    title: "Mountain Adventure",
-    date: "2024-04-18",
-    description: "Explore the heights with this thrilling mountain adventure.",
-    imageUrl: "/images/snowMountain.jpg",
-    clickUrl: "/"
-  },
-  {
-    title: "Desert Expedition",
-    date: "2024-04-19",
-    description: "Feel the sun and sand in an exciting desert rally.",
-    imageUrl: "/images/desert.jpg",
-    clickUrl: "/"
-  },
-  {
-    title: "Swimming Competition",
-    date: "2024-04-20",
-    description: "Dive into the action in this thrilling swimming event.",
-    imageUrl: "/images/swimmingGirl.jpg",
-    clickUrl: "/"
-  }
-];
-
-
-const SlideCards: React.FC = () => {
+const SlideCards: React.FC<SlideCardProps> = ({ contents }) => {
+  
+  const showNavigation = contents.length > 4; // 네비게이션 버튼을 보일지 말지 결정하는 조건
+ 
   return (
     <Container sx={{
-      width: '1024px',
-      height: '300px'
+      width: '1050px',
+      display: 'flex',
+      justifyContent: 'space-between', 
+      position: 'relative',
+      paddingTop: "10px 10px 20px",
+
     }}>
-      <Swiper 
-        modules={[Navigation, Pagination]} 
-        spaceBetween={10}  // 모든 화면 크기에서 카드 사이 간격을 10px로 고정
-        slidesPerView={5}  // 초기 슬라이드 뷰 5개 설정
-        navigation
-        pagination={{ clickable: true }}
-        style={{ position: 'relative', paddingTop: '50px', paddingBottom: '50px' }}
+      <button className="custom-swiper-button-prev" style={{
+        cursor: 'pointer',
+        border: 'none',
+        color: 'black',
+        backgroundColor: 'none',
+        padding: '10px',
+      }}><ArrowBackIosIcon /></button>
+      <Swiper
+        modules={[Navigation, Pagination]}
+        spaceBetween={10}
+        slidesPerView={4}
+        slidesPerGroup={4}
+        navigation={{
+          nextEl: '.custom-swiper-button-next',
+          prevEl: '.custom-swiper-button-prev',
+        }}
+        pagination={{ clickable: true}}
+        style={{ position: 'relative', paddingTop: '0px', paddingBottom: '30px' }}
       >
-        {cardsContents.map((content, index) => (
+        {contents.map((content, index) => (
           <SwiperSlide key={index}>
-            <OneCard 
-              content={content} 
-              onCardClick={() => window.location.href = content.clickUrl} 
+            <OneCard
+              contents={content}
+              onCardClick={() => window.location.href = content.clickUrl}
             />
           </SwiperSlide>
         ))}
       </Swiper>
+      <button className="custom-swiper-button-next" style={{
+        cursor: 'pointer',
+        border: 'none',
+        color: '#3e3e3e',
+        padding: '10px',
+        marginLeft: '10px'
+
+      }}><ArrowForwardIosIcon /></button>
     </Container>
   );
 }
