@@ -31,16 +31,24 @@ interface CardProps {
         height="150px"
         image={contents.imageUrl}
       />
-      <CardContent>
+      <CardContent style={{paddingBottom : '0px'}}>
         <Typography variant="body1" color="text.secondary">
         {contents.description}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
+        <IconButton aria-label="add to favorites"
+          onClick={(event) => {
+            event.stopPropagation();
+            console.log("Favorite clicked");  
+          }}>
           <FavoriteIcon />
         </IconButton>
-        <IconButton aria-label="share">
+        <IconButton aria-label="share"
+          onClick={(event) => {
+            event.stopPropagation();
+            console.log("shared clicked");  
+          }}>
           <ShareIcon />
         </IconButton>
       </CardActions>
