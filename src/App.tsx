@@ -5,7 +5,7 @@ import LoginDisplay from "./modules/login/LoginDisplay";
 import { createGlobalStyle } from "styled-components";
 import { createTheme, ThemeProvider } from "@mui/material";
 import Layout from "./modules/layout/Layout";
-import Main from "./modules/main/routers/Main";
+import Main from "./modules/main/routers/MainPageDisplay";
 
 const GlobalStyle = createGlobalStyle`
 @font-face{
