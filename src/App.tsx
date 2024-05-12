@@ -6,6 +6,7 @@ import { createGlobalStyle } from "styled-components";
 import { createTheme, ThemeProvider } from "@mui/material";
 import Layout from "./modules/layout/Layout";
 import Main from "./modules/main/routers/Main";
+import PostCreatePage from "./modules/post/postCreatePage/routers/PostCreatePage";
 
 const GlobalStyle = createGlobalStyle`
 @font-face{
@@ -56,7 +57,7 @@ function App() {
           <Route path="/login" element={<LoginDisplay />} />
           <Route element={<Layout />}>
             <Route path="/" element={<Main />} />
-            {/* <Route path="/post/create" element={<CreationPost />} /> => 예시입니다!!! */}
+            <Route path="/post/create" element={<PostCreatePage />} />
           </Route>
         </Routes>
       </ThemeProvider>
