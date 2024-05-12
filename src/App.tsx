@@ -5,6 +5,8 @@ import LoginDisplay from "./modules/login/LoginDisplay";
 import { createGlobalStyle } from "styled-components";
 import { createTheme, ThemeProvider } from "@mui/material";
 import Layout from "./modules/layout/Layout";
+import SignUpDisplay from "./modules/login/SignUpDisplay";
+import MyPageDisplay from "./modules/mypage/MyPageDisplay";
 import PostCreatePage from "./modules/post/postCreatePage/routers/PostCreatePage";
 import Main from "./modules/main/routers/MainPageDisplay";
 
@@ -54,8 +56,10 @@ function App() {
       <GlobalStyle />
       <ThemeProvider theme={Theme}>
         <Routes>
-          <Route path="/login" element={<LoginDisplay />} />
           <Route element={<Layout />}>
+            <Route path="/login" element={<LoginDisplay />} />
+            <Route path="/signup" element={<SignUpDisplay/>} />
+            <Route path="/mypage" element={<MyPageDisplay/>} />
             <Route path="/" element={<Main />} />
             <Route path="/post/create" element={<PostCreatePage />} />
           </Route>
