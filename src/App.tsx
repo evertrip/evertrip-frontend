@@ -5,6 +5,7 @@ import LoginDisplay from "./modules/login/LoginDisplay";
 import { createGlobalStyle } from "styled-components";
 import { createTheme, ThemeProvider } from "@mui/material";
 import Layout from "./modules/layout/Layout";
+import PostCreatePage from "./modules/post/postCreatePage/routers/PostCreatePage";
 import Main from "./modules/main/routers/MainPageDisplay";
 import Profile from "./modules/myPage/profile";
 import PostList from "./modules/myPage/postList";
@@ -66,6 +67,7 @@ function App() {
             <Route path="/postList" element={<PostList/>} />
             {/* 회원 탈퇴 */}
             <Route path="/withdraw" element={<Withdraw/>} /> 
+            <Route path="/post/create" element={<PostCreatePage />} />
           </Route>
         </Routes>
       </ThemeProvider>
