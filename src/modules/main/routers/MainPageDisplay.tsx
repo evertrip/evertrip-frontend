@@ -1,4 +1,4 @@
-import {Box, Container } from "@mui/material";
+import {Box, Container, TextField } from "@mui/material";
 import React, { useState, useRef, useEffect } from 'react';
 import SlideCards from "../components/SlideCards";
 import GridCards from "../components/GridCards";
@@ -9,6 +9,8 @@ import CardContents from '../components/CardContent'
 
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
+import SearchTypeBox from "../seachComponent/SearchTypeBox";
+import SearchBoxForTag from "../seachComponent/SearchBoxForTag";
 
 
 
@@ -180,6 +182,8 @@ const Main = () => {
     };
   }, []);
 
+  const [searchType, setSearchType] = useState('title'); 
+
   return (
     <Container  sx={{ marginTop: { xs: '30px', md: '60px' } }}>
       <Box sx={{ width: '100%', height: '400px', overflow: 'hidden', paddingBottom: '50px' }}>
@@ -202,12 +206,19 @@ const Main = () => {
         }}
         onClick={() => setClicked(true)} // 검색창 클릭 시 상태를 true로 설정
         > 
-        <SearchIcon style={{paddingRight: '10px'}}/>
-        <InputBase
-          style={{width : '100%'}}
-          placeholder="검색"
-          inputProps={{ 'aria-label': 'search' }}
-        /></Box>
+      <Box sx={{ display: 'flex', justifyContent: 'center', padding: '20px' }}>
+      <SearchTypeBox value={searchType} onChange={setSearchType} />
+      {searchType === 'tag' ? <SearchBoxForTag /> : (
+        <TextField
+          label={searchType === 'title' ? "Search Titles" : "Search Authors"}
+          variant="outlined"
+          fullWidth
+        />
+      )}
+    </Box>
+
+          
+        </Box>
       </Box>
       
       <Box sx={{ width: '100%', borderBottom: 1, borderTop: 1, borderColor: 'divider', marginBottom: '30px' }}>
