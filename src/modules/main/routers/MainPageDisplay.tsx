@@ -182,7 +182,7 @@ const Main = () => {
 
   return (
     <Container  sx={{ marginTop: { xs: '30px', md: '60px' } }}>
-      <Box sx={{ width: '100%', height: '400px', overflow: 'hidden', paddingBottom: '50px' }}>
+        <Box sx={{ width: '100%', height: '400px', overflow: 'hidden', paddingBottom: '50px' }}>
         <img src="/images/banner.jpg" alt="Main Banner" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
         <Box
           ref={searchRef} 
