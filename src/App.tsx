@@ -11,6 +11,7 @@ import Main from "./modules/main/routers/MainPageDisplay";
 import Profile from "./modules/myPage/profile";
 import PostList from "./modules/myPage/postList";
 import Withdraw from "./modules/myPage/withdraw";
+import Test from "./modules/config/Test";
 
 const GlobalStyle = createGlobalStyle`
 @font-face{
@@ -70,6 +71,7 @@ function App() {
             {/* 회원 탈퇴 */}
             <Route path="/withdraw" element={<Withdraw/>} /> 
             <Route path="/post/create" element={<PostCreatePage />} />
+            <Route path="/test" element= {<Test/>}/>
           </Route>
         </Routes>
       </ThemeProvider>
