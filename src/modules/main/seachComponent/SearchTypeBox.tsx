@@ -25,7 +25,6 @@ const SearchTypeBox: React.FC<Props> = ({ value, onChange }) => {
           onChange={handleChange}
         >
           <MenuItem value={'title'}>제목</MenuItem>
-          <MenuItem value={'author'}>작성자</MenuItem>
           <MenuItem value={'tag'}>태그</MenuItem>
         </Select>
       </FormControl>

@@ -156,80 +156,69 @@ const allContents: CardContents[] = [
 
 ];
 
-const Main = () => {
-  const [value, setValue] = useState('best');
+const Main: React.FC = () => {
+  const [value, setValue] = useState<string>('best');
+  const [searchTags, setSearchTags] = useState<string[]>([]);
+  const [searchContent, setSearchContent] = useState<string>('');
+  const searchRef = useRef<HTMLDivElement>(null);
 
-  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
-    setValue(newValue);
-  };
-
-  const [clicked, setClicked] = useState(false);
-  const searchRef = useRef<HTMLDivElement>(null); // 검색창의 ref 생성, HTMLDivElement를 명시
-
-  // 외부 클릭 감지 함수
-  const handleClickOutside = (event: MouseEvent) => {
-    if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
-      setClicked(false); // 검색창 외부 클릭 시 상태를 false로 설정
+  const handleKeyPress = (event: React.KeyboardEvent) => {
+    if (event.key === 'Enter') {
+      console.log(JSON.stringify({
+        searchContent,
+        searchTags
+      }));
     }
   };
 
-  useEffect(() => {
-    // 전역 클릭 이벤트 리스너 추가
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      // 컴포넌트 언마운트 시 이벤트 리스너 제거
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
-
-  const [searchType, setSearchType] = useState('title'); 
-
   return (
-    <Container  sx={{ marginTop: { xs: '30px', md: '60px' } }}>
-      <Box sx={{ width: '100%', height: '400px', overflow: 'hidden', paddingBottom: '50px' }}>
-        <img src="/images/banner.jpg" alt="Main Banner" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+    <Container sx={{ marginTop: { xs: '30px', md: '60px' } }}>
+      <Box sx={{ width: '100%', overflow: 'hidden', paddingBottom: '50px' }}>
+        <img src="/images/banner.jpg" alt="Main Banner" style={{ width: '100%', height: '400px', objectFit: 'cover' }} />
         <Box
-          ref={searchRef} 
-          sx={{ 
-            position: 'absolute',
-            left: '50%',
-            top: '40%',
-            transform: 'translate(-50%, -50%)', 
+          ref={searchRef}
+          sx={{
             display: 'flex',
+            flexDirection: 'column',
             alignItems: 'center',
-            width: '50%',
+            width: '100%',
             maxWidth: '800px',
-            minWidth: '500px',
-            bgcolor: clicked ? 'white' : 'rgba(255, 255, 255, 0.5)', // 클릭 상태에 따라 배경색 조정
             padding: '10px',
             borderRadius: '4px',
-        }}
-        onClick={() => setClicked(true)} // 검색창 클릭 시 상태를 true로 설정
-        > 
-      <Box sx={{ display: 'flex', justifyContent: 'center', padding: '20px' }}>
-      <SearchTypeBox value={searchType} onChange={setSearchType} />
-      {searchType === 'tag' ? <SearchBoxForTag /> : (
-        <TextField
-          label={searchType === 'title' ? "Search Titles" : "Search Authors"}
-          variant="outlined"
-          fullWidth
-        />
-      )}
-    </Box>
-
-          
+            margin: '0 auto',
+            marginTop: '-200px',
+            gap : "10px"
+          }}
+        >
+          <TextField
+            sx={{
+              backgroundColor : "white",
+              width : '100%'
+            }}
+            variant="outlined"
+            placeholder="검색"
+            fullWidth
+            InputLabelProps={{
+              shrink: false // 레이블이 올라가는 효과를 비활성화
+            }}
+            value={searchContent}
+            onChange={(e) => setSearchContent(e.target.value)}
+            onKeyPress={handleKeyPress}
+          />
+          <SearchBoxForTag 
+          setTags={setSearchTags}
+          handleEnterKeyPress={handleKeyPress}          />
         </Box>
       </Box>
-      
+
       <Box sx={{ width: '100%', borderBottom: 1, borderTop: 1, borderColor: 'divider', marginBottom: '30px' }}>
-        <Tabs value={value} onChange={handleChange} textColor="primary" indicatorColor="primary" aria-label="primary tabs example">
-          <Tab value="best" label="BEST 30" style={{fontSize:'18px'}}/>
-          <Tab value="view" label="VIEW 30" style={{fontSize:'18px'}}/>
+        <Tabs value={value} onChange={(event: React.SyntheticEvent, newValue: string) => setValue(newValue)} textColor="primary" indicatorColor="primary" aria-label="primary tabs example">
+          <Tab value="best" label="BEST 30" style={{ fontSize: '18px' }} />
+          <Tab value="view" label="VIEW 30" style={{ fontSize: '18px' }} />
         </Tabs>
         {value === 'best' && <SlideCards contents={best30} />}
         {value === 'view' && <SlideCards contents={view30} />}
       </Box>
-
 
       <Box>
         <h1>NEW 게시글</h1>
@@ -237,6 +226,6 @@ const Main = () => {
       </Box>
     </Container>
   );
-}
+};
 
 export default Main;
