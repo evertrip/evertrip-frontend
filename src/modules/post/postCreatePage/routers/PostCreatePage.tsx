@@ -5,41 +5,44 @@ import React, { useRef, useState } from "react";
 import PostCreateInfo from "../components/PostCreateInfo";
 import { useNavigate } from "react-router-dom";
 import { PostInfoProps } from "../types/PostTypes";
-import TuiEditor from "../components/TuiEditor";
+import EditorBox from "../components/EditorBox";
 import { Editor } from "@toast-ui/react-editor";
 
 const styles = {
   container: css({
     marginTop: "30px",
+    overflow: "hidden",
   }),
 
   buttonBox: css({
-    marginTop: "30px",
+    display: "flex",
+    justifyContent: "center",
     marginRight: "10px",
+    marginTop: "60px",
   }),
 
   writeButton: css({
     marginRight: "20px",
     backgroundColor: "#747474",
     "&:hover": {
-      backgroundColor: "#3e3e3e", // 호버 시 배경색
-      color: "white", // 호버 시 폰트 색상
+      backgroundColor: "#3e3e3e",
+      color: "white",
     },
     "&.Mui-focusVisible": {
-      backgroundColor: "#ffffff", // 포커스 시 배경색
-      color: "black", // 포커스 시 폰트 색상
+      backgroundColor: "#ffffff",
+      color: "black",
     },
   }),
 
   postButton: css({
     backgroundColor: "#3e3e3e",
     "&:hover": {
-      backgroundColor: "#3e3e3e", // 호버 시 배경색
-      color: "white", // 호버 시 폰트 색상
+      backgroundColor: "#3e3e3e",
+      color: "white",
     },
     "&.Mui-focusVisible": {
-      backgroundColor: "#ffffff", // 포커스 시 배경색
-      color: "black", // 포커스 시 폰트 색상
+      backgroundColor: "#ffffff",
+      color: "black",
     },
   }),
 };
@@ -63,42 +66,25 @@ function PostCreatePage() {
     postImageUrl: "",
   });
 
-  const getContents = () => {
-    const markdownContent = editorRef.current?.getInstance().getMarkdown();
-    const htmlContent = editorRef.current?.getInstance().getHTML();
-
-    console.log(markdownContent, htmlContent);
-  };
-
-  const handleImage = async (file: File, callback: typeof Function) => {
-    // const imageUrl = await getImageUrl(file);
-    // callback(imageUrl);
-
-    const handleImage = async (file: File, callback: typeof Function) => {};
-  };
-
   return (
     <Container maxWidth="md" css={styles.container}>
       <PostCreateInfo
         postInfo={postInfo}
         setPostInfo={setPostInfo}
         setPostImage={setPostImage}
-      ></PostCreateInfo>
+      />
+      <EditorBox editorRef={editorRef} />
+
       <Box css={styles.buttonBox}>
-        {/* <TuiEditor editorRef={editorRef} /> */}
-        <TuiEditor editorRef={editorRef} imageHandler={handleImage} />
         <Button variant="contained" css={styles.writeButton}>
           작성하기
         </Button>
-        <Button
-          variant="contained"
-          css={styles.postButton}
-          onClick={getContents}
-        >
+        <Button variant="contained" css={styles.postButton}>
           게시하기
         </Button>
       </Box>
     </Container>
   );
 }
+
 export default PostCreatePage;
