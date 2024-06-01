@@ -6,8 +6,9 @@ import TextField from '@mui/material/TextField';
 import CustomAxios from '../../config/CustomAxios';
 
 interface Tag {
-  name: string;
-  id: number;
+  tagId: number;
+  tagName: string;
+
 }
 
 interface SearchBoxForTagProps {
@@ -20,9 +21,9 @@ const SearchBoxForTag: React.FC<SearchBoxForTagProps> = ({ setTags, handleEnterK
 
   const fetchTags = async () => {
     try {
-      const response = await CustomAxios('GET', 'http://localhost:8080/api/tags/all');
-      const tags = response.data as Tag[];
-      setTagOptions(tags.map(tag => tag.name));
+      const response = await CustomAxios('GET', 'http://localhost:8080/api/tags/permit/all');
+      const tags = response.data.content as Tag[];
+      setTagOptions(tags.map(tag => tag.tagName));
     } catch (error) {
       console.error('Failed to fetch tags:', error);
     }
@@ -35,11 +36,10 @@ const SearchBoxForTag: React.FC<SearchBoxForTagProps> = ({ setTags, handleEnterK
   return (
     <Stack spacing={2} sx={{ width: '100%', bgcolor: "white" }}>
       <Autocomplete
-        multiple
         id="tags-outlined"
         options={tagOptions}
         getOptionLabel={(option) => option}
-        onChange={(event, newValue) => setTags(newValue)}
+        // onChange={(event, newValue) => setTags(newValue)}
         renderInput={(params) => (
           <TextField 
             {...params} 
