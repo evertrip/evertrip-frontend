@@ -14,6 +14,7 @@ import React, { useEffect, useState } from "react";
 import ImageIcon from "@mui/icons-material/Image";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import { CreatePostInfoProps, PostInfoProps } from "../types/PostTypes";
+import { Tag } from "./TagsInput";
 
 const styles = {
   card: css({
@@ -205,6 +206,7 @@ function PostCreateInfo({
               <VisuallyHiddenInput type="file" onChange={handleImageUpload} />
             </Button>
           </Box>
+          <Tag></Tag>
         </Box>
       </CardContent>
     </Card>

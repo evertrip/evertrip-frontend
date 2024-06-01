@@ -11,6 +11,7 @@ import Main from "./modules/main/routers/MainPageDisplay";
 import Profile from "./modules/myPage/profile";
 import PostList from "./modules/myPage/postList";
 import Withdraw from "./modules/myPage/withdraw";
+import Test from "./modules/config/Test";
 
 const GlobalStyle = createGlobalStyle`
 @font-face{
@@ -60,16 +61,17 @@ function App() {
         <Routes>
           <Route element={<Layout />}>
             <Route path="/login" element={<LoginDisplay />} />
-            <Route path="/signup" element={<SignUpDisplay/>} />
+            <Route path="/signup" element={<SignUpDisplay />} />
             <Route path="/" element={<Main />} />
             {/* <Route path="/post/create" element={<CreationPost />} /> => 예시입니다!!! */}
             {/* 내 프로필 조회(수정) */}
-            <Route path="/profile" element={<Profile/>} />
+            <Route path="/profile" element={<Profile />} />
             {/* 내 게시글 목록 조회 */}
-            <Route path="/postList" element={<PostList/>} />
+            <Route path="/postList" element={<PostList />} />
             {/* 회원 탈퇴 */}
-            <Route path="/withdraw" element={<Withdraw/>} /> 
+            <Route path="/withdraw" element={<Withdraw />} />
             <Route path="/post/create" element={<PostCreatePage />} />
+            <Route path="/test" element= {<Test/>}/>
           </Route>
         </Routes>
       </ThemeProvider>
