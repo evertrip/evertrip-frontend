@@ -21,7 +21,7 @@ const SearchBoxForTag: React.FC<SearchBoxForTagProps> = ({ setTags, handleEnterK
 
   const fetchTags = async () => {
     try {
-      const response = await CustomAxios('GET', 'http://localhost:8080/api/tags/permit/all');
+      const response = await CustomAxios('GET', 'http://localhost:8080/api/tags/all');
       const tags = response.data.content as Tag[];
       setTagOptions(tags.map(tag => tag.tagName));
     } catch (error) {

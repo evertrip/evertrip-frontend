@@ -3,42 +3,16 @@ import { Box, Container, Grid } from '@mui/material';
 import OneGridCard from './OneGridCard';
 import CardContents from './CardContent';
 
-interface CardsGridProps {
+interface GridCardsProps {
   contents: CardContents[];
 }
 
-const GridCards: React.FC<CardsGridProps> = ({ contents }) => {
-  const [visibleCards, setVisibleCards] = useState<CardContents[]>([]);
-  const [allLoaded, setAllLoaded] = useState(false);
-
-  useEffect(() => {
-    loadMoreCards(); 
-  }, []);
-
-  const loadMoreCards = () => {
-    setVisibleCards(prevCards => {
-      const nextCards = contents.slice(prevCards.length, prevCards.length + 8);
-      if (prevCards.length + nextCards.length === contents.length) {
-        setAllLoaded(true);
-      }
-      return [...prevCards, ...nextCards];
-    });
-  };
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.innerHeight + document.documentElement.scrollTop + 100 >= document.documentElement.offsetHeight && !allLoaded) {
-        loadMoreCards();
-      }
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }); 
+const GridCards: React.FC<GridCardsProps> = ({ contents }) => {
 
   return (
     <Container maxWidth="lg">
       <Grid container spacing={2} style={{ rowGap: '40px' }}>
-        {visibleCards.map((card, index) => (
+        {contents.map((card, index) => (
           <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
             <OneGridCard 
               contents={card} 
@@ -47,7 +21,7 @@ const GridCards: React.FC<CardsGridProps> = ({ contents }) => {
           </Grid>
         ))}
       </Grid>
-      {allLoaded && (
+      {contents.length === 0 && (
         <Box style={{
           textAlign: 'center',
           marginTop: '20px',
@@ -64,6 +38,6 @@ const GridCards: React.FC<CardsGridProps> = ({ contents }) => {
       )}
     </Container>
   );
-}
+};
 
 export default GridCards;

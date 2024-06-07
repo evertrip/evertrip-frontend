@@ -55,7 +55,7 @@ const OneCard: React.FC<CardProps> = ({ contents, onCardClick }) => {
             <CardMedia
               component="img"
               height="150px" 
-              image={contents.imageUrl}
+              image={contents.postImage}
             />
             <CardContent sx={{
                 width : '100%',
@@ -77,7 +77,7 @@ const OneCard: React.FC<CardProps> = ({ contents, onCardClick }) => {
                 textOverflow: 'ellipsis', 
                 whiteSpace: 'normal'
               }}>
-                {contents.description}
+                {contents.content}
               </Typography>
             </CardContent>
             <CardHeader
@@ -99,7 +99,7 @@ const OneCard: React.FC<CardProps> = ({ contents, onCardClick }) => {
               sx={{
                 fontSize: '14px', 
               }}
-              color="text.secondary" >{contents.date}</Typography>}
+              color="text.secondary" >{contents.createdAt}</Typography>}
               sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingBottom: 0 }}
             />
           </Box>

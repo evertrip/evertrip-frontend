@@ -24,16 +24,16 @@ interface CardProps {
     <Card onClick={onCardClick}  sx={{ maxWidth: 345}}>
       <CardHeader
         title={<Typography variant="h6" overflow='hidden' whiteSpace='nowrap'>{contents.title}</Typography>}
-        subheader={<Typography variant="subtitle1" color="text.secondary" >{contents.date}</Typography>}
+        subheader={<Typography variant="subtitle1" color="text.secondary" >{contents.createdAt}</Typography>}
         />
       <CardMedia
         component="img"
         height="150px"
-        image={contents.imageUrl}
+        image={contents.postImage}
       />
       <CardContent style={{paddingBottom : '0px'}}>
         <Typography variant="body1" color="text.secondary">
-        {contents.description}
+        {contents.content}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>

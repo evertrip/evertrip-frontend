@@ -1,7 +1,13 @@
 export default interface CardContent {
-    title: string;
-    date: string;
-    description: string;
-    imageUrl: string;
-    clickUrl: string;
-  }  
+  "postId": number,
+  "memberId": number,
+  "nickName": string,
+  "title": string,
+  "createdAt": string,
+  "view": number,
+  "postImage": string,
+  "content": string,
+  "likeCount": number,
+
+  "clickUrl" : string
+}
