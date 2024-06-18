@@ -115,7 +115,7 @@ function Header() {
               cursor: "pointer",
             }}
           />{" "}
-          <Button color="inherit">Login</Button>
+          <Button color="inherit" onClick={() => navigate('/login')}>Login</Button>
         </Toolbar>
       </AppBar>
     </Box>

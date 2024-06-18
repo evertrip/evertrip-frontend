@@ -62,7 +62,7 @@ function Profile() {
               "description": "기본 자기 소개글을 작성해주시기 바랍니다.",
               "createdAt": "2024-04-26 22:21:55",
               "updatedAt": "2024-04-26 22:21:55",
-              "profileImage": "https://ever-trip-bucket.s3.ap-northeast-2.amazonaws.com/basic_user_image.jpg",
+              "profileImage": "https://evertrip-bucket.s3.ap-northeast-2.amazonaws.com/basic_user_image.jpg",
               "email": "rlarkddnr1686@naver.com"
           }
       ],

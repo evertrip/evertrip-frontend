@@ -6,10 +6,10 @@ const data = [
     { 
       postId: 1,
       title: '1번 게시글',
-      postProfileImage: 'https://ever-trip-bucket.s3.ap-northeast-2.amazonaws.com/basic_post_image.jpg',
+      postProfileImage: 'https://evertrip-bucket.s3.ap-northeast-2.amazonaws.com/basic_post_image.jpg',
       memberProfileId: 1,
       memberNickname: '강욱회원',
-      memberProfileImage: 'https://ever-trip-bucket.s3.ap-northeast-2.amazonaws.com/basic_user_image.jpg',
+      memberProfileImage: 'https://evertrip-bucket.s3.ap-northeast-2.amazonaws.com/basic_user_image.jpg',
       createdAt: '2024-05-09 14:22:11',
       view: '396k views',
       likeCount: '135 likes'
@@ -17,10 +17,10 @@ const data = [
     { 
         postId: 2,
         title: '2번 게시글',
-        postProfileImage: 'https://ever-trip-bucket.s3.ap-northeast-2.amazonaws.com/basic_post_image.jpg',
+        postProfileImage: 'https://evertrip-bucket.s3.ap-northeast-2.amazonaws.com/basic_post_image.jpg',
         memberProfileId: 2,
         memberNickname: '창우회원',
-        memberProfileImage: 'https://ever-trip-bucket.s3.ap-northeast-2.amazonaws.com/basic_user_image.jpg',
+        memberProfileImage: 'https://evertrip-bucket.s3.ap-northeast-2.amazonaws.com/basic_user_image.jpg',
         createdAt: '2024-05-10 14:22:11',
         view: '396k views',
         likeCount: '135 likes'
@@ -28,10 +28,10 @@ const data = [
       { 
         postId: 3,
         title: '3번 게시글',
-        postProfileImage: 'https://ever-trip-bucket.s3.ap-northeast-2.amazonaws.com/basic_post_image.jpg',
+        postProfileImage: 'https://evertrip-bucket.s3.ap-northeast-2.amazonaws.com/basic_post_image.jpg',
         memberProfileId: 3,
         memberNickname: '혜민회원',
-        memberProfileImage: 'https://ever-trip-bucket.s3.ap-northeast-2.amazonaws.com/basic_user_image.jpg',
+        memberProfileImage: 'https://evertrip-bucket.s3.ap-northeast-2.amazonaws.com/basic_user_image.jpg',
         createdAt: '2024-05-11 14:22:11',
         view: '396k views',
         likeCount: '135 likes'
@@ -39,10 +39,10 @@ const data = [
       { 
         postId: 4,
         title: '4번 게시글',
-        postProfileImage: 'https://ever-trip-bucket.s3.ap-northeast-2.amazonaws.com/basic_post_image.jpg',
+        postProfileImage: 'https://evertrip-bucket.s3.ap-northeast-2.amazonaws.com/basic_post_image.jpg',
         memberProfileId: 1,
         memberNickname: '강욱회원',
-        memberProfileImage: 'https://ever-trip-bucket.s3.ap-northeast-2.amazonaws.com/basic_user_image.jpg',
+        memberProfileImage: 'https://evertrip-bucket.s3.ap-northeast-2.amazonaws.com/basic_user_image.jpg',
         createdAt: '2024-05-09 14:22:11',
         view: '396k views',
         likeCount: '135 likes'
@@ -50,10 +50,10 @@ const data = [
       { 
           postId: 5,
           title: '5번 게시글',
-          postProfileImage: 'https://ever-trip-bucket.s3.ap-northeast-2.amazonaws.com/basic_post_image.jpg',
+          postProfileImage: 'https://evertrip-bucket.s3.ap-northeast-2.amazonaws.com/basic_post_image.jpg',
           memberProfileId: 2,
           memberNickname: '창우회원',
-          memberProfileImage: 'https://ever-trip-bucket.s3.ap-northeast-2.amazonaws.com/basic_user_image.jpg',
+          memberProfileImage: 'https://evertrip-bucket.s3.ap-northeast-2.amazonaws.com/basic_user_image.jpg',
           createdAt: '2024-05-10 14:22:11',
           view: '396k views',
           likeCount: '135 likes'
@@ -61,10 +61,10 @@ const data = [
         { 
           postId: 6,
           title: '6번 게시글',
-          postProfileImage: 'https://ever-trip-bucket.s3.ap-northeast-2.amazonaws.com/basic_post_image.jpg',
+          postProfileImage: 'https://evertrip-bucket.s3.ap-northeast-2.amazonaws.com/basic_post_image.jpg',
           memberProfileId: 3,
           memberNickname: '혜민회원',
-          memberProfileImage: 'https://ever-trip-bucket.s3.ap-northeast-2.amazonaws.com/basic_user_image.jpg',
+          memberProfileImage: 'https://evertrip-bucket.s3.ap-northeast-2.amazonaws.com/basic_user_image.jpg',
           createdAt: '2024-05-11 14:22:11',
           view: '396k views',
           likeCount: '135 likes'
@@ -72,10 +72,10 @@ const data = [
         { 
             postId: 7,
             title: '7번 게시글',
-            postProfileImage: 'https://ever-trip-bucket.s3.ap-northeast-2.amazonaws.com/basic_post_image.jpg',
+            postProfileImage: 'https://evertrip-bucket.s3.ap-northeast-2.amazonaws.com/basic_post_image.jpg',
             memberProfileId: 1,
             memberNickname: '강욱회원',
-            memberProfileImage: 'https://ever-trip-bucket.s3.ap-northeast-2.amazonaws.com/basic_user_image.jpg',
+            memberProfileImage: 'https://evertrip-bucket.s3.ap-northeast-2.amazonaws.com/basic_user_image.jpg',
             createdAt: '2024-05-09 14:22:11',
             view: '396k views',
             likeCount: '135 likes'
@@ -83,10 +83,10 @@ const data = [
           { 
               postId: 8,
               title: '8번 게시글',
-              postProfileImage: 'https://ever-trip-bucket.s3.ap-northeast-2.amazonaws.com/basic_post_image.jpg',
+              postProfileImage: 'https://evertrip-bucket.s3.ap-northeast-2.amazonaws.com/basic_post_image.jpg',
               memberProfileId: 2,
               memberNickname: '창우회원',
-              memberProfileImage: 'https://ever-trip-bucket.s3.ap-northeast-2.amazonaws.com/basic_user_image.jpg',
+              memberProfileImage: 'https://evertrip-bucket.s3.ap-northeast-2.amazonaws.com/basic_user_image.jpg',
               createdAt: '2024-05-10 14:22:11',
               view: '396k views',
               likeCount: '135 likes'
@@ -99,8 +99,7 @@ const styles = {
       width: '100%',
       margin: 0,
       padding: 3,
-      gap: 1,
-      border: '2px solid grey',
+      gap: '15px',
       gridTemplateColumns: 'repeat(4, 1fr)',
       gridTemplateRows: 'repeat(2, 1fr)'
     }),
@@ -108,10 +107,19 @@ const styles = {
       width: '100%',
       my: 1,
       p:2,
+      border: '1px solid rgba(0, 0, 0, 0.2)',
+      boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
       "&:hover": {
         backgroundColor: '#f4f4f4',
         cursor: 'pointer'
-    }})
+    }}),
+    postbox: ({
+      marginTop: '2px',
+      marginLeft: '8px'
+    })
   };
 
   interface PostProps {
@@ -142,13 +150,13 @@ const styles = {
               />
             )}
             {(
-              <Box sx={{ pr: 2 }}>
+              <Box sx={styles.postbox}>
                 <Typography gutterBottom variant="body2">
                   {item.title}
                 </Typography>
-                <Typography display="block" variant="caption" color="text.secondary">
+                <Typography display="block" variant="caption" color="text.secondary" style={{display: 'flex', alignItems: 'center', marginBottom : '3px'}}>
                 <img
-                style={{ width: '10%', height: '10%' }}
+                style={{ width: '8%', height: '8%',marginRight: '8px', marginBottom: '2px'}}
                 src={item.memberProfileImage}
                 />
                   {item.memberNickname}

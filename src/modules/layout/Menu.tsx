@@ -14,8 +14,11 @@ import {
 import DraftsIcon from "@mui/icons-material/Drafts";
 import AssignmentIndIcon from "@mui/icons-material/AssignmentInd";
 import EditNoteIcon from "@mui/icons-material/EditNote";
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import SignalCellularAltIcon from '@mui/icons-material/SignalCellularAlt';
 import React from "react";
 import { css } from "@emotion/react";
+import { useNavigate } from "react-router-dom";
 
 // -------------- 부가 설명 ----------------------- >> 주석은 최종적으로 develop에 merge 할 때 삭제하도록 하겠습니다.
 
@@ -84,6 +87,7 @@ const styles = {
  * @author 박창우
  */
 function Menu({ toggleDrawer }: MenuProps) {
+  const navigate = useNavigate();
   return (
     <Box
       css={styles.drawerBox}
@@ -110,7 +114,7 @@ function Menu({ toggleDrawer }: MenuProps) {
       <nav aria-label="main mailbox folders">
         <List>
           <ListItem disablePadding>
-            <ListItemButton>
+            <ListItemButton onClick={() => navigate('/my-profile')}>
               <ListItemIcon>
                 <AssignmentIndIcon />
               </ListItemIcon>
@@ -118,7 +122,15 @@ function Menu({ toggleDrawer }: MenuProps) {
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
-            <ListItemButton>
+            <ListItemButton onClick={() => navigate('/withdraw')}>
+              <ListItemIcon>
+                <DeleteForeverIcon />
+              </ListItemIcon>
+              <ListItemText primary="회원 탈퇴" />
+            </ListItemButton>
+          </ListItem>
+          <ListItem disablePadding>
+            <ListItemButton onClick={() => navigate('/my-postlist')}>
               <ListItemIcon>
                 <EditNoteIcon />
               </ListItemIcon>
@@ -131,6 +143,14 @@ function Menu({ toggleDrawer }: MenuProps) {
                 <DraftsIcon />
               </ListItemIcon>
               <ListItemText primary="찜한 게시글 목록" />
+            </ListItemButton>
+          </ListItem>
+          <ListItem disablePadding>
+            <ListItemButton onClick={() => navigate('/events-statics')}>
+              <ListItemIcon>
+                <SignalCellularAltIcon />
+              </ListItemIcon>
+              <ListItemText primary="게시글 통계 페이지" />
             </ListItemButton>
           </ListItem>
         </List>
