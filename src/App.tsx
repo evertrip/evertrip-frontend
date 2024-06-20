@@ -8,10 +8,12 @@ import Layout from "./modules/layout/Layout";
 import SignUpDisplay from "./modules/login/SignUpDisplay";
 import PostCreatePage from "./modules/post/postCreatePage/routers/PostCreatePage";
 import Main from "./modules/main/routers/MainPageDisplay";
-import Profile from "./modules/myPage/profile";
-import PostList from "./modules/myPage/postList";
-import Withdraw from "./modules/myPage/withdraw";
+import Profile from "./modules/myPage/MyProfile";
+import PostList from "./modules/myPage/MyPostList";
+import Withdraw from "./modules/myPage/Withdraw";
 import Test from "./modules/config/Test";
+import EventStatistics from "./modules/myPage/EventStatistics";
+import NaverLogin from "./modules/login/NaverLogin";
 
 const GlobalStyle = createGlobalStyle`
 @font-face{
@@ -61,15 +63,18 @@ function App() {
         <Routes>
           <Route element={<Layout />}>
             <Route path="/login" element={<LoginDisplay />} />
+            <Route path='/NaverLogin' element={<NaverLogin/>}/>
             <Route path="/signup" element={<SignUpDisplay />} />
             <Route path="/" element={<Main />} />
             {/* <Route path="/post/create" element={<CreationPost />} /> => 예시입니다!!! */}
             {/* 내 프로필 조회(수정) */}
-            <Route path="/profile" element={<Profile />} />
+            <Route path="/my-profile" element={<Profile />} />
             {/* 내 게시글 목록 조회 */}
-            <Route path="/postList" element={<PostList />} />
+            <Route path="/my-postlist" element={<PostList />} />
             {/* 회원 탈퇴 */}
             <Route path="/withdraw" element={<Withdraw />} />
+            {/* 게시글 이벤트 통계 페이지 */}
+            <Route path="/events-statics" element={<EventStatistics />} />
             <Route path="/post/create" element={<PostCreatePage />} />
             <Route path="/test" element= {<Test/>}/>
           </Route>
